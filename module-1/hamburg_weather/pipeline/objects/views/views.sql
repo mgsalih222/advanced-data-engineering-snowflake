@@ -28,8 +28,8 @@ SELECT
     ROUND(AVG(fd.tot_precipitation_in),2) AS avg_precipitation_inches,
     ROUND(AVG(analytics.inch_to_millimeter(fd.tot_precipitation_in)),2) AS avg_precipitation_millimeters,
     MAX(fd.max_wind_speed_100m_mph) AS max_wind_speed_100m_mph
-FROM harmonized.daily_weather_v fd
-LEFT JOIN harmonized.orders_v odv
+FROM tasty_bytes.harmonized.daily_weather_v fd
+LEFT JOIN tasty_bytes.harmonized.orders_v odv
     ON fd.date_valid_std = DATE(odv.order_ts)
     AND fd.city_name = odv.primary_city
     AND fd.country_desc = odv.country
